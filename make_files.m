@@ -1,6 +1,10 @@
-% Use this script to make files for analysis. Before running this script,
-%   create an empty folder where the data will be saved. 
-% Reminder: For heatmap, one file is needed with your data numbers and data text'
+% Use this script to make files for analysis. Before running this script, create an empty folder where the data will be saved. 
+% Secondly, you will be prompted to how many variables you want to import.
+%    Note: You may import many arrays into a .mat file. Be aware of what is needed for each script. 
+%    i.e. bar_graph, two variables one for each bar; heat_map, one variable with both textdata and data   
+% Lastly, you will be prompted to select the file to import from, name each respective file for the variable, then select the data to import to the file. 
+% This step will repeat depending on the number of variables wanting to input.
+%    Note: Selecting data from a spreadsheet, first select the sheet, then select the variable to import.
 
 clear
 close all
@@ -8,7 +12,7 @@ clc
 
 save_folder = uigetdir('' , 'Select folder to save data');
 
-import_arrays = str2num(cell2mat(inputdlg('Enter the number of arrays to import')));
+import_arrays = str2num(cell2mat(inputdlg('Enter the number of variables to import')));
 
 [import_file , import_path] = uigetfile('*.*' , 'Select file to import data');
 cd(import_path)
