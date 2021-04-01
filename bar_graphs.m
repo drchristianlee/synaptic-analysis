@@ -1,9 +1,13 @@
-% Create .mat files containing the results. First create a directory where
-% you want to save the files. Then create a variable to hold each set of
-% values. Results are organized in .mat files with data in column so copy
-% paste values as column vectors. Then, change to the directory where you
-% want to save the data and save the variables using save('variable_name').
-% vectors.
+% Creates two bar graphs from files you created in make_files.m
+% You should have 2 files to use with your data, one for each bar.
+% Note: only two variables should be in the folder when running this script
+% Run this script
+%    First, you will select your designated folder with the 2 variables and it will pull them from the folder. 
+%    Second, you will select your test, paired or unpaired. 
+%    Lastly, you will be prompted to fill in labels for your axis, bar, and title. 
+
+
+
 
 clear;
 close all
