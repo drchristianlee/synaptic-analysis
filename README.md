@@ -27,7 +27,8 @@ Creating .mat files containing data to use.
 - Use make_files.m to create the variable files for use of heat_map.m. For heat_map to use the variable file when selecting data from a spreadsheet have both        textdata and data selected. No need to create separate variables for each one. 
 
 When selecting your data from a spreadsheet.
-- Have the data (numbers and text) in the order you would want them to be displayed and have only the data you want to use in a separate sheet (i.e. no other numbers are text that could be selected). For row and column names, keep each label aligned with each row and column. The cell, 1,1 or 1,A, will be excluded when pulling the names.
+- Have the data (numbers and text) in the order you would want them to be displayed and have only the data you want to use in a separate sheet (i.e. no other numbers or text that could be selected). For row and column names, keep each label aligned with each row and column. The cell, 1,1 or 1,A, will be excluded when pulling the names.
+    Note: for X and Y text labels, there should be no duplicates i.e "A, A, A, ... " but "A1, A2, A3, ..."
 
 Use heat_map script to create the heatmap.
 - Once variable files are made, prompts will appear to indicate what you are selecting for. Once selected, a dialog box will appear to allow you to enter axis labels as well as a title. The last line of code in heat_map script is what determine the color, the link to the color schemes are commented, change the name after the "=" to change the color scheme to your liking.
