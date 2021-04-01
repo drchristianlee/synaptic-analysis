@@ -65,13 +65,13 @@ hold on;
 if test == 1;
     for points = 1:size(test_keeper, 1);
         plot(test_keeper(points, 1:2) , '-o', 'color' , 'black', 'MarkerFaceColor', 'green') % sets column 2 points with green colors
-        plot(test_keeper(points, 1:1) , '-o', 'color' , 'black', 'MarkerFaceColor', 'red')   % sets column 2 points with green colors
+        plot(test_keeper(points, 1:1) , '-o', 'color' , 'black', 'MarkerFaceColor', 'red')   % sets column 1 points with red colors
         hold on                                                                              % black sets connecting lines as black between points
-    end                                                                                      % must have 1:2 then 1:1 being that this is a loop the 1:1 after 1:2 covers all column 1's points with different colors
+    end                                                                                      % must have 1:2 then 1:1 being that this is a loop, the 1:1 after 1:2 covers all column 1's points with different colors
 elseif test == 2;
     for points = 1:size(test_keeper, 1);
         plot(test_keeper(points, 1:2) , 'o', 'color' , 'green', 'MarkerFaceColor', 'green') % sets column 2 points with green colors
-        plot(test_keeper(points, 1:1) , 'o', 'color' , 'red', 'MarkerFaceColor', 'red')     % sets column 2 points with green colors
+        plot(test_keeper(points, 1:1) , 'o', 'color' , 'red', 'MarkerFaceColor', 'red')     % sets column 1 points with red colors
         hold on                                                                             % must have 1:2 then 1:1 being that this is a loop the 1:1 after 1:2 covers all column 1's points with different colors
     end
 end
