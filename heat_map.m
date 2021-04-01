@@ -1,4 +1,4 @@
-% Creates a heatmap from files you create in make_files.m
+% Creates a heatmap from files you created in make_files.m
 % You should have 1 file to use with your data and datatext. 
 
 clear;
