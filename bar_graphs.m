@@ -13,19 +13,7 @@ clear;
 close all
 clc
 
-folder = uigetdir;
-test = str2num(cell2mat(inputdlg('Would you like to do a paired or unpaired test? Press 1 for paired 2 for unpaired')));
-cd(folder);
-filePattern = fullfile(folder, '*.mat');
-matfiles = dir(filePattern);
-count = length(matfiles);
-keepercol = 1;
-for f = 1:count;
-    B = matfiles(f, 1).name;
-    currkeeper = load(B);
-    name = char(fieldnames(currkeeper));
-    holdercells(1, f) = {currkeeper.(name)};
-end
+load_mat_files
 
 for f = 1:count; %% transverses holdercells struct type to cell type
     holdercells(1,f) = struct2cell(holdercells{1,f});
