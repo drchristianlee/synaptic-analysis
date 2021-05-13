@@ -15,6 +15,8 @@ clc
 
 load_mat_files
 
+test = str2num(cell2mat(inputdlg('Would you like to do a paired or unpaired test? Press 1 for paired 2 for unpaired')));
+
 for f = 1:count; %% transverses holdercells struct type to cell type
     holdercells(1,f) = struct2cell(holdercells{1,f});
 end
