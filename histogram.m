@@ -1,4 +1,10 @@
+[file_nm, path] = uigetfile;
+cd(path);
+imported_data = load(file_nm);
+
 figure
+
+
 histogram(imported_data.data(:,1));
 
 
