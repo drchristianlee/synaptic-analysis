@@ -1,13 +1,14 @@
 [file_nm, path] = uigetfile;
 cd(path);
-imported_data = load(file_nm);
+load(file_nm);
 
+X = imported_data.data(:,1);
 figure
-
+histogram(X)
 
 histogram(imported_data.data(:,1));
 
-
+figure
 histogram(imported_data.data(:,1),'Normalization','cdf')
 
 
