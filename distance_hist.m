@@ -6,15 +6,6 @@ load(file_nm);
 
 plot_select = str2num(cell2mat(inputdlg('Would you like to plot a cdf histogram ? Press 1 for yes')));
 
-figure
-histogram(imported_data.data(:,1));
-
-figure
-histogram(imported_data.data(:,1), 'Normalization', 'probability')
-
-figure
-histogram(imported_data.data(:,1),'Normalization','cdf')
-
 if plot_select == 1;
     
 [values, edges] = histcounts(imported_data.data(:,1), 'Normalization', 'cdf');
