@@ -1,3 +1,5 @@
+% This script can be used to plot histograms of distance data. 
+
 [file_nm, path] = uigetfile;
 cd(path);
 load(file_nm);
