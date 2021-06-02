@@ -70,12 +70,7 @@ elseif test == 2;
         hold on                                                                             % must have 1:2 then 1:1 being that this is a loop the 1:1 after 1:2 covers all column 1's points with different colors
     end
 end
-
- m = ylim('mode'); %% allows to manually set y limit
- targetpoint = max(test_keeper, [], 'all'); %% finds maximum value overall
- target = round(targetpoint, -2); %% rounds that max to nearest 100
- ylim([0, (target)]); %% sets max y to the rounded 100th max value
- 
+  
  
  % sets axis & bars labels 
  if cust_label == 1;
@@ -88,7 +83,8 @@ end
  else
  end
 
- %axis([0 3 0 40])
+ axis([0 3 0 700])
+ yticks([0:100:700])
  set(gca,'TickDir','out')
  set(gca, 'box', 'off')
  set(gcf,'position',[680 558 160 210])
