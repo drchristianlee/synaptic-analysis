@@ -1,6 +1,9 @@
-% Creates two bar graphs from files you created in make_files.m
+% Creates two bar graphs from files you created. Files can be created from
+% make_files.m or using another method. Values are entered as column
+% vectors. 
 % You should have 2 files to use with your data, one for each bar.
-% Note: only two variables should be in the folder when running this script
+% Note: only files for the two variables should be in the folder this
+% script is run on
 % Run this script
 %    First, you will select your designated folder with the 2 variables and it will pull them from the folder. 
 %    Second, you will select your test, paired or unpaired. 
@@ -13,13 +16,15 @@ clear;
 close all
 clc
 
-load_mat_files
+holdercells = load_mat_files
 
 test = str2num(cell2mat(inputdlg('Would you like to do a paired or unpaired test? Press 1 for paired 2 for unpaired')));
+cust_label = str2num(cell2mat(inputdlg('Would you like to add custom labels? Press 1 for yes 2 for no')));
 
-for f = 1:count; %% transverses holdercells struct type to cell type
-    holdercells(1,f) = struct2cell(holdercells{1,f});
-end
+%uncomment below if make_files was used
+% for f = 1:count; %% transverses holdercells struct type to cell type
+%     holdercells(1,f) = struct2cell(holdercells{1,f});
+% end
 
 for subs = 1:size(holdercells, 2);
     for frames = 1:size(holdercells{1, subs}, 1);
@@ -37,14 +42,14 @@ if scale == 1;
 else
 end
 
-barkeeper(1,1) = nanmean(test_keeper(:,1));
-barkeeper(1,2) = nanmean(test_keeper(:, 2));
+barkeeper(1,1) = mean(test_keeper(:,1), 'omitnan');
+barkeeper(1,2) = mean(test_keeper(:, 2), 'omitnan');
 nanfinder = isnan(test_keeper);
 nanvals = sum(nanfinder, 1);
 denominator1 = sqrt((size(test_keeper(:, 1), 1)) - nanvals(1, 1));
 denominator2 = sqrt((size(test_keeper(:, 2), 1)) - nanvals(1, 2));
-barkeeper(2,1) = nanstd(test_keeper(:,1))/denominator1;
-barkeeper(2,2) = nanstd(test_keeper(:,2))/denominator2;
+barkeeper(2,1) = std(test_keeper(:,1), 'omitnan')/denominator1;
+barkeeper(2,2) = std(test_keeper(:,2), 'omitnan')/denominator2;
 
 figure
 bar(barkeeper(1,:), 'FaceColor', [0.99 0.99 0.99], 'EdgeColor', [0.0 0.0 0.0], 'LineWidth', 1.5); % vertical bar chart, white bar/black outline/thickend outline
@@ -71,13 +76,17 @@ end
  target = round(targetpoint, -2); %% rounds that max to nearest 100
  ylim([0, (target)]); %% sets max y to the rounded 100th max value
  
+ 
  % sets axis & bars labels 
+ if cust_label == 1;
  dlg_ans  = inputdlg({'What is your graph title?','What is your x-axis representing?', 'What is your y-axis representing?', 'What is your first bar representing?', 'What is your second bar representing?'});
  xlabel(dlg_ans(2,1))
  ylabel(dlg_ans(3,1))
  barnames = dlg_ans(4:5,1);
  set(gca,'xticklabel',barnames)
  title(dlg_ans(1,1))
+ else
+ end
 
  %axis([0 3 0 40])
  set(gca,'TickDir','out')
