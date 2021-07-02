@@ -83,8 +83,8 @@ end
  else
  end
 
- axis([0 3 0 700])
- yticks([0:100:700])
+%  axis([0 3 0 700])
+%  yticks([0:100:700])
  set(gca,'TickDir','out')
  set(gca, 'box', 'off')
  set(gcf,'position',[680 558 160 210])
